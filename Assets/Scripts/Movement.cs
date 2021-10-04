@@ -98,7 +98,7 @@ public class Movement : MonoBehaviour
 
         if(coll.onWall && !coll.onGround)
         {
-            if (x != 0 && !wallGrab)
+            if (x != 0 && !wallGrab && y < 0)
             {
                 wallSlide = true;
                 WallSlide();
