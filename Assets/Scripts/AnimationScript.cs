@@ -6,29 +6,22 @@ public class AnimationScript : MonoBehaviour
 {
 
     private Animator anim;
-    private Movement move;
-    private Collision coll;
+    private Movement_Mech move;
+    private Collision_Mech coll;
     [HideInInspector]
     public SpriteRenderer sr;
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        coll = GetComponentInParent<Collision>();
-        move = GetComponentInParent<Movement>();
+        coll = GetComponentInParent<Collision_Mech>();
+        move = GetComponentInParent<Movement_Mech>();
         sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
         anim.SetBool("onGround", coll.onGround);
-        anim.SetBool("onWall", coll.onWall);
-        anim.SetBool("onRightWall", coll.onRightWall);
-        anim.SetBool("wallGrab", move.wallGrab);
-        anim.SetBool("wallSlide", move.wallSlide);
-        anim.SetBool("canMove", move.canMove);
-        anim.SetBool("isDashing", move.isDashing);
-
     }
 
     public void SetHorizontalMovement(float x,float y, float yVel)
@@ -42,21 +35,8 @@ public class AnimationScript : MonoBehaviour
     {
         anim.SetTrigger(trigger);
     }
-
     public void Flip(int side)
     {
-
-        if (move.wallGrab || move.wallSlide)
-        {
-            if (side == -1 && sr.flipX)
-                return;
-
-            if (side == 1 && !sr.flipX)
-            {
-                return;
-            }
-        }
-
         bool state = (side == 1) ? false : true;
         sr.flipX = state;
     }

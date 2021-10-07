@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Player
   - Ground
   - PostProcessing
   - 
@@ -38,6 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: UI
+    uniqueID: 1203356587
+    locked: 0
+  - name: Player
+    uniqueID: 2193456703
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
